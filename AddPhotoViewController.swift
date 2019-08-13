@@ -16,9 +16,19 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         imagePicker.delegate = self
         // Do any additional setup after loading the view.
+    
     }
     
-
+    @IBAction func takeSelfieTapped(_ sender: UIButton){
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func photoLibraryTapped(_ sender: UIButton) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -29,4 +39,6 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     */
 
-}
+
+    }
+
