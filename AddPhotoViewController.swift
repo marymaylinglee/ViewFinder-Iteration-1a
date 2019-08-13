@@ -29,6 +29,14 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var displayImage: UIImageView!
+    private func imagePickerControllerDidCancel(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            displayImage.image = selectedImage
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
